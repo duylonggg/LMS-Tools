@@ -41,16 +41,16 @@
 2.  Vào một học phần và chọn bất kỳ một video bài giảng.
 3.  Nhấn **F12** để mở Developer Tools và chọn tab **Network** để theo dõi các API của trang web.
 4.  Trong tab **Network**, lọc tìm **Fetch/XHR**.
-5.  Tìm API có tên **get_session_info**.
+5.  Tìm API có tên **chatter_init**.
 ---
 ### Bước 5: Lấy session_id và thông tin payload
 
-1.  Trong **get_session_info**:
+1.  Trong **chatter_init**:
     -   Chọn tab **Headers**.
     -   Tìm **Request Headers** > **Cookies** và sao chép **session_id** từ mục **Cookies** rồi dán vào code Python.
 2.  Tiếp tục:
     -   Chuyển sang tab **Payload** (bên cạnh **Headers**).
-    -   Sao chép **id** và **slide_id** từ payload và dán vào code.
+    -   Sao chép **id** và **res_id** (res_id sẽ thay vào SLIDE_ID trong code) từ payload và dán vào code.
 ---
 ### Bước 6: Chạy mã Python
 
