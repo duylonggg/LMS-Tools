@@ -1,8 +1,8 @@
 import requests
 
-SLIDE_IDs = [68, 69]
+SLIDE_IDs = []
 ID = 0
-SESSION_ID = '2269c80d47c80970191950a915ee9591fc013692'
+SESSION_ID = ''
 
 def use_existing_session():
     url = "https://lms.ptit.edu.vn/slides/slide/set_completed"
