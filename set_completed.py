@@ -1,6 +1,6 @@
 import requests
 
-SLIDE_ID = 
+SLIDE_IDs = 
 ID = 
 SESSION_ID = ''
 
@@ -17,23 +17,24 @@ def use_existing_session():
         "session_id": SESSION_ID,
         "frontend_lang": "vi_VN",
     }
+    
+    for SLIDE_ID in SLIDE_IDs:
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "slide_id": SLIDE_ID
+            },
+            "id": ID
+        }
 
-    payload = {
-        "jsonrpc": "2.0",
-        "method": "call",
-        "params": {
-            "slide_id": SLIDE_ID
-        },
-        "id": ID
-    }
+        response = requests.post(url, json=payload, headers=headers, cookies=cookies)
 
-    response = requests.post(url, json=payload, headers=headers, cookies=cookies)
-
-    if response.status_code == 200:
-        print("Yêu cầu thành công!")
-        print(response.json()) 
-    else:
-        print(f"Yêu cầu thất bại. Mã trạng thái: {response.status_code}")
+        if response.status_code == 200:
+            print("Yêu cầu thành công!")
+            print(response.json()) 
+        else:
+            print(f"Yêu cầu thất bại. Mã trạng thái: {response.status_code}")
 
 if __name__ == "__main__":
     use_existing_session()
